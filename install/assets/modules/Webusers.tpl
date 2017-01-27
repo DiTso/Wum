@@ -66,39 +66,9 @@ jQuery(document).ready(function ($) {
             return "<a class=\"btn btn-sm btn-default command-edit\" data-row-id=\"" + row.id + "\" href=\"index.php?a=88&id=" + row.id + "\"><span class=\"fa fa-pencil\"></span></a> " + 
                 "<a class=\"btn btn-sm btn-default command-delete\" data-row-id=\"" + row.id + "\" href=\"index.php?a=90&id=" + row.id +  "\"><span class=\"fa fa-trash-o\"></span></a> ";
         }
-    },
-	    url: "/api/data/basic",
-    selection: true,
-    multiSelect: true,
-    formatters: {
-        "link": function(column, row)
-        {
-            return "<a href=\"#\">" + column.id + ": " + row.id + "</a>";
-        }
     }
-}).on("selected.rs.jquery.bootgrid", function(e, rows)
-{
-    var rowIds = [];
-    for (var i = 0; i < rows.length; i++)
-    {
-        rowIds.push(rows[i].id);
-    }
-    alert("Select: " + rowIds.join(","))
-.end().find("#remove").on("click", function(e)
-    {
-    var rowIds = [];
-    for (var i = 0; i < rows.length; i++)
-    {
-        rowIds.push(rows[i].id);
-		$("#users-grid").bootgrid("remove", rowIds);
-    }
-        
     });
-	
-    });
-	
 });
-
 </script>
 
 </head>
@@ -135,7 +105,7 @@ iframe {
 		<li><a href="index.php?a=87">New Web User</a></li>
 		
 		<a class="ext-ico" href="#" title="Edit in new window" onclick="window.open(\'index.php?a=87\',\'gener\',\'width=800,height=600,top=\'+((screen.height-600)/2)+\',left=\'+((screen.width-800)/2)+\',toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no\')"> <small><i class="fa fa-user-plus" aria-hidden="true"></i></small></a>
-		<li><a id="remove" href="#">Delete selected</a></li>
+		<li><a href="index.php?a=87">Delete selected</a></li>
 		<li><a href="javascript:location.reload();" title="Reload list"><i class="fa fa-refresh"></i></a></li>
 		
 
@@ -155,7 +125,6 @@ iframe {
 					  </div>
 					   </div>
 					   <script>
-			
 $(".bootpopup").click(function(){
     var frametarget = $(this).attr("href");
   var targetmodal = $(this).attr("target");
